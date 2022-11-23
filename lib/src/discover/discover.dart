@@ -39,8 +39,6 @@ class Discover {
         config.preferredOutgoingSmtpServer!.port = 465;
         config.preferredOutgoingSmtpServer!.socketType = SocketType.ssl;
       }
-    }else{
-      print("Error e ${forceSslConnection} && ${config != null}");
     }
     return config;
   }
@@ -109,9 +107,10 @@ class Discover {
       _log('mxDomain for [$emailDomain] is [$mxDomain]', isLogEnabled);
       if (mxDomain != null && mxDomain != emailDomain) {
         config = await DiscoverHelper.discoverFromAutoConfigSubdomain(
-            emailAddress,
-            domain: mxDomain,
-            isLogEnabled: isLogEnabled);
+          emailAddress,
+          domain: mxDomain,
+          isLogEnabled: isLogEnabled,
+        );
       }
       //print('querying ISP DB for $mxDomain');
 
