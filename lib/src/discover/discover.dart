@@ -129,7 +129,7 @@ class Discover {
       config ??= await DiscoverHelper.discoverFromCommonDomains(domains,
           isLogEnabled: isLogEnabled);
     }
-    //print('got config $config for $mxDomain.');
+    print('got config $config for $emailDomain.');
     return _updateDisplayNames(config, emailDomain);
   }
 
