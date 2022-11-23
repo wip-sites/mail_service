@@ -92,8 +92,8 @@ class DiscoverHelper {
       return null;
     }
     mxDomain = mxDomain.substring(dotIndex + 1, lastDotIndex);
-    if (mxDomain == domain) {
-      mxDomain = domain.substring(domain.indexOf('.') + 1, domain.length);
+    if(mxDomain == domain) {
+      mxDomain = domain.substring(domain.indexOf('.')+1, domain.length);
     }
     return mxDomain;
   }
@@ -155,7 +155,11 @@ class DiscoverHelper {
           'smtp: ${smtpInfo != null ? 'ok' : 'failure'} ');
       return null;
     }
-    final preferredIncomingInfo = popInfo!;
+    final preferredIncomingInfo = (imapInfo?.isSecure ?? false)
+        ? imapInfo!
+        : (popInfo?.isSecure ?? false)
+            ? popInfo!
+            : imapInfo ?? popInfo!;
     if (isLogEnabled) {
       print('');
       print('found mail server for $baseDomain:');

@@ -70,7 +70,7 @@ class MailAccount extends SerializableObject {
   /// it must also be specified.
   /// You should specify the [outgoingClientDomain] for sending messages,
   /// this defaults to `enough.de`.
-  /// The [incomingType] defaults to [ServerType.pop], the [incomingPort]
+  /// The [incomingType] defaults to [ServerType.imap], the [incomingPort]
   /// to `993` and the [incomingSocketType] to [SocketType.ssl].
   /// The [outgoingType] defaults to [ServerType.smtp], the [outgoingPort]
   /// to `465` and the [outgoingSocketType] to [SocketType.ssl].
@@ -80,7 +80,7 @@ class MailAccount extends SerializableObject {
     String incomingHost,
     String outgoingHost,
     String password, {
-    ServerType incomingType = ServerType.pop,
+    ServerType incomingType = ServerType.imap,
     ServerType outgoingType = ServerType.smtp,
     String? userName,
     String outgoingClientDomain = 'enough.de',
@@ -111,7 +111,7 @@ class MailAccount extends SerializableObject {
   /// the [outgoingAuth] parameter.
   /// You should specify the [outgoingClientDomain] for sending messages,
   /// this defaults to `enough.de`.
-  /// The [incomingType] defaults to [ServerType.pop], the [incomingPort] to
+  /// The [incomingType] defaults to [ServerType.imap], the [incomingPort] to
   /// `993` and the [incomingSocketType] to [SocketType.ssl].
   /// The [outgoingType] defaults to [ServerType.smtp], the [outgoingPort] to
   /// `465` and the [outgoingSocketType] to [SocketType.ssl].
@@ -121,7 +121,7 @@ class MailAccount extends SerializableObject {
     String incomingHost,
     String outgoingHost,
     MailAuthentication auth, {
-    ServerType incomingType = ServerType.pop,
+    ServerType incomingType = ServerType.imap,
     ServerType outgoingType = ServerType.smtp,
     MailAuthentication? outgoingAuth,
     String outgoingClientDomain = 'enough.de',
