@@ -155,11 +155,7 @@ class DiscoverHelper {
           'smtp: ${smtpInfo != null ? 'ok' : 'failure'} ');
       return null;
     }
-    final preferredIncomingInfo = (popInfo?.isSecure ?? false)
-        ? popInfo!
-        : (imapInfo?.isSecure ?? false)
-            ? imapInfo!
-            : imapInfo ?? popInfo!;
+    final preferredIncomingInfo = popInfo!;
     if (isLogEnabled) {
       print('');
       print('found mail server for $baseDomain:');
