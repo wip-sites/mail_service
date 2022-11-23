@@ -39,6 +39,8 @@ class Discover {
         config.preferredOutgoingSmtpServer!.port = 465;
         config.preferredOutgoingSmtpServer!.socketType = SocketType.ssl;
       }
+    }else{
+      print("Error e ${forceSslConnection} && ${config != null}");
     }
     return config;
   }
