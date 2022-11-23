@@ -92,8 +92,8 @@ class DiscoverHelper {
       return null;
     }
     mxDomain = mxDomain.substring(dotIndex + 1, lastDotIndex);
-    if(mxDomain == domain) {
-      mxDomain = domain.substring(domain.indexOf('.')+1, domain.length);
+    if (mxDomain == domain) {
+      mxDomain = domain.substring(domain.indexOf('.') + 1, domain.length);
     }
     return mxDomain;
   }
@@ -155,10 +155,10 @@ class DiscoverHelper {
           'smtp: ${smtpInfo != null ? 'ok' : 'failure'} ');
       return null;
     }
-    final preferredIncomingInfo = (imapInfo?.isSecure ?? false)
-        ? imapInfo!
-        : (popInfo?.isSecure ?? false)
-            ? popInfo!
+    final preferredIncomingInfo = (popInfo?.isSecure ?? false)
+        ? popInfo!
+        : (imapInfo?.isSecure ?? false)
+            ? imapInfo!
             : imapInfo ?? popInfo!;
     if (isLogEnabled) {
       print('');
