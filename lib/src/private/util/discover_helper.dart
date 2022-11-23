@@ -93,7 +93,7 @@ class DiscoverHelper {
     }
     mxDomain = mxDomain.substring(dotIndex + 1, lastDotIndex);
     if(mxDomain == domain) {
-      mxDomain = domain.substring(domain.indexOf('.'), domain.length);
+      mxDomain = domain.substring(domain.indexOf('.')+1, domain.length);
     }
     return mxDomain;
   }
