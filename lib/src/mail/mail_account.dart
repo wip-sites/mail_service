@@ -80,7 +80,7 @@ class MailAccount extends SerializableObject {
     String incomingHost,
     String outgoingHost,
     String password, {
-    ServerType incomingType = ServerType.imap,
+    ServerType incomingType = ServerType.pop,
     ServerType outgoingType = ServerType.smtp,
     String? userName,
     String outgoingClientDomain = 'enough.de',
