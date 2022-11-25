@@ -8,7 +8,7 @@ class SmtpAuthLoginCommand extends SmtpCommand {
   /// Creates a new AUTH LOGIN command
   SmtpAuthLoginCommand(this._userName, this._password) : super('AUTH LOGIN');
 
-  final String? _userName;
+  late String? _userName;
   final String? _password;
   final Base64Codec _codec = const Base64Codec();
   bool _userNameSent = false;

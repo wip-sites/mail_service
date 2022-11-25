@@ -12,7 +12,7 @@ class SmtpAuthCramMd5Command extends SmtpCommand {
   SmtpAuthCramMd5Command(this._userName, this._password)
       : super('AUTH CRAM-MD5');
 
-  final String? _userName;
+  late String? _userName;
   final String? _password;
   bool _authSent = false;
 

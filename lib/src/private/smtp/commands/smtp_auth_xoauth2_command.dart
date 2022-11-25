@@ -9,7 +9,7 @@ class SmtpAuthXOauth2Command extends SmtpCommand {
   SmtpAuthXOauth2Command(this._userName, this._accessToken)
       : super('AUTH XOAUTH2');
 
-  final String? _userName;
+  late String? _userName;
   final String? _accessToken;
   bool _authSent = false;
 
