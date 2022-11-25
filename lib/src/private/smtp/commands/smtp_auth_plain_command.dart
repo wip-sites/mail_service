@@ -7,7 +7,7 @@ class SmtpAuthPlainCommand extends SmtpCommand {
   SmtpAuthPlainCommand(this.userName, this.password) : super('AUTH PLAIN');
 
   /// The user name
-  final String userName;
+  late String userName;
 
   /// The password
   final String password;

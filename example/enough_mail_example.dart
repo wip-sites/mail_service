@@ -2,16 +2,16 @@ import 'dart:io';
 
 import 'package:enough_mail/enough_mail.dart';
 
-String userName = 'user.name';
-String password = 'password';
-String domain = 'domain.com';
-String imapServerHost = 'imap.$domain';
+String userName = 'contato@grupoexcelencia.srv.br';
+String password = '#Excelencia10';
+String domain = 'grupoexcelencia.srv.br';
+String imapServerHost = 'mail.$domain';
 int imapServerPort = 993;
 bool isImapServerSecure = true;
-String popServerHost = 'pop.$domain';
+String popServerHost = 'mail.$domain';
 int popServerPort = 995;
 bool isPopServerSecure = true;
-String smtpServerHost = 'smtp.$domain';
+String smtpServerHost = 'mail.$domain';
 int smtpServerPort = 465;
 bool isSmtpServerSecure = true;
 
@@ -19,7 +19,6 @@ bool isSmtpServerSecure = true;
 void main() async {
   //await mailExample();
   await discoverExample();
-  await imapExample();
   await smtpExample();
   await popExample();
   exit(0);
@@ -27,7 +26,7 @@ void main() async {
 
 /// Auto discover settings from email address example
 Future<void> discoverExample() async {
-  const email = 'someone@enough.de';
+  const email = 'teste@hgsservices.com.br';
   final config = await Discover.discover(email, isLogEnabled: false);
   if (config == null) {
     print('Unable to discover settings for $email');
@@ -120,7 +119,10 @@ Future<void> mailExample() async {
 
 /// Low level IMAP API usage example
 Future<void> imapExample() async {
-  final client = ImapClient(isLogEnabled: false);
+  final client = ImapClient(isLogEnabled: false, onBadCertificate: (v){
+    print("Here $v");
+    return true;
+  });
   try {
     await client.connectToServer(imapServerHost, imapServerPort,
         isSecure: isImapServerSecure);
@@ -140,7 +142,10 @@ Future<void> imapExample() async {
 
 /// Low level SMTP API example
 Future<void> smtpExample() async {
-  final client = SmtpClient('enough.de', isLogEnabled: true);
+  final client = SmtpClient(domain, isLogEnabled: true, onBadCertificate: (v){
+    print("Here $v");
+    return true;
+  },);
   try {
     await client.connectToServer(smtpServerHost, smtpServerPort,
         isSecure: isSmtpServerSecure);

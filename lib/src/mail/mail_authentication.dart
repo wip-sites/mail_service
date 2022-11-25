@@ -233,7 +233,7 @@ class OauthAuthentication extends UserNameBasedAuthentication {
   @override
   Future<void> authenticate(ServerConfig serverConfig,
       {ImapClient? imap, PopClient? pop, SmtpClient? smtp}) async {
-    final userName = this.userName;
+    late String userName = this.userName;
     final accessToken = token.accessToken;
     switch (serverConfig.type) {
       case ServerType.imap:
